@@ -1,0 +1,21 @@
+= PushBots
+
+PushBots Flutter&#x27;s SDK
+
+Created using latest Flutter stable version `v1.13.2`
+
+
+== Run the App:-
+<<<
+=== 1. Clone the Repository
+
+`git clone https://github.com/pushbots/flutter-sdk.git`
+
+
+=== 2.Move the the example
+`cd example`
+
+=== 3. Run the App
+`flutter run`, If you are running it for first time, it should be slow..
+
+

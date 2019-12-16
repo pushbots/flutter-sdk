@@ -1,0 +1,10 @@
+= PushBots Example
+
+Demonstrates how to use the pushbots plugin.
+
+== Getting Started
+
+Once added `pushbots` into your `pubspec.yaml`.
+You can start by initializing the `PushBots` by calling `Pushbots.init();`
+
+And register for notification by `Pushbots.registerForNotification();`
