@@ -1,4 +1,4 @@
-= PushBots Example
+= PushBots Example.
 
 Demonstrates how to use the pushbots plugin.
 
