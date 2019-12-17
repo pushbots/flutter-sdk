@@ -92,8 +92,10 @@ class Pushbots {
 
         break;
       case "opened":
+        notificationOpen.add(call.toString());
         break;
       case "ids":
+        ids.add(call.toString());
         break;
     }
   }
