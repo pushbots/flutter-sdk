@@ -1,12 +1,14 @@
 import 'dart:async';
 
-
 import 'package:flutter/services.dart';
 
 class Pushbots {
   static const MethodChannel _channel = const MethodChannel('pushbots');
-  static StreamController<Map<String, String>> notificationReceive = new StreamController<Map<String, String>>();
-
+  static StreamController<String> notificationReceive =
+      new StreamController<String>();
+  static StreamController<String> notificationOpen =
+      new StreamController<String>();
+  static StreamController<String> ids = new StreamController<String>();
 
   static Future<String> init() async {
     _channel.setMethodCallHandler(_handleMethod);
@@ -65,25 +67,29 @@ class Pushbots {
     return _channel.invokeMethod("toggleNotifications", statue);
   }
 
-//  static ValueNotifier<Map<dynamic, dynamic>> listenForNotificationReceive()  {
-//    _channel.invokeMapMethod("receiveCallback");
-//    return valueNotifier;
-//  }
-//
-//  static Future<Map<dynamic, dynamic>> listenForNotificationOpen() async {
-//   return _channel.invokeMapMethod("openCallback");
-//  }
-//
-//  static Future<String> listenForNotificationIds() async {
-//    return _channel.invokeMethod("idsCallback");
-//  }
+  static StreamController<String> listenForNotificationReceive() {
+    _channel.invokeMapMethod("receiveCallback");
+    return notificationReceive;
+  }
+
+  static StreamController<String> listenForNotificationOpen() {
+    _channel.invokeMapMethod("openCallback");
+    return notificationOpen;
+  }
+
+  static StreamController<String> listenForNotificationIds() {
+    _channel.invokeMethod("idsCallback");
+    return ids;
+  }
 
   static Future<dynamic> _handleMethod(MethodCall call) async {
     print("PushBots.dart: Called");
     switch (call.method) {
       case "received":
-        print("PushBots.dart: "+  call.arguments.toString());
-        // todo complete update data
+        //notificationReceive.addStream(call.arguments.toString());
+        notificationReceive.add(call.toString());
+        //print("PushBots.dart: "+  call.arguments.toString());
+
         break;
       case "opened":
         break;

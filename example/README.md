@@ -22,3 +22,11 @@ defaultConfig {
 
     }
 ```
+
+Listen for notifiers (receive, open) notifications:-
+
+```dart
+ Pushbots.listenForNotificationReceive().stream.listen((onData) {
+      print("MAIN, received: " + onData.toString());
+    });
+```
