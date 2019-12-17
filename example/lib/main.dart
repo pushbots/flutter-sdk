@@ -23,9 +23,6 @@ class _MyAppState extends State<MyApp> {
     initPushBots();
     registerForNotification();
 
-    Pushbots.listenForNotificationReceive().asStream().listen((onData) {
-      print("MAIN, received: " + onData.toString());
-    });
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.

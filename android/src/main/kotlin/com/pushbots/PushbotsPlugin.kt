@@ -23,7 +23,7 @@ class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : Metho
     }
 
 
-    var receiveResult : Result? = null;
+    var receiveResult: Result? = null;
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
             "init" -> {
