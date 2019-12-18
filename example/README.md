@@ -1,8 +1,9 @@
-# PushBots Example
+A library for Dart developers. Help you manage notifications easily and effectively.
 
-Demonstrates how to use the pushbots plugin.
+Created from templates made available by Stagehand under a BSD-style
+[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
 
-## Getting Started
+## Usage
 
 Once added `pushbots` into your `pubspec.yaml`.
 You can start by initializing the `PushBots` by calling `Pushbots.init();`
@@ -30,3 +31,6 @@ Listen for notifiers (receive, open) notifications:-
       print("MAIN, received: " + onData.toString());
     });
 ```
+
+## Feature and bugs
+Please fill issue on https://github.com/pushbots  or  https://stackoverflow.com/questions/tagged/pushbots

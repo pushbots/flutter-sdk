@@ -1,6 +1,6 @@
 name: pushbots
 description: PushBots SDK, help you manage push notifications easily and effectivly
-version: 0.0.2
+version: 0.0.3
 homepage: https://pushbots.com/
 
 environment:
