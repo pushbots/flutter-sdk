@@ -86,16 +86,15 @@ class Pushbots {
     print("PushBots.dart: Called");
     switch (call.method) {
       case "received":
-        //notificationReceive.addStream(call.arguments.toString());
-        notificationReceive.add(call.toString());
+        notificationReceive.add(call.arguments.toString());
         //print("PushBots.dart: "+  call.arguments.toString());
 
         break;
       case "opened":
-        notificationOpen.add(call.toString());
+        notificationOpen.add(call.arguments.toString());
         break;
       case "ids":
-        ids.add(call.toString());
+        ids.add(call.arguments.toString());
         break;
     }
   }

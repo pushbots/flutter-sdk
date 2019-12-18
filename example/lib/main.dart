@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -25,6 +27,8 @@ class _MyAppState extends State<MyApp> {
 
     Pushbots.listenForNotificationReceive().stream.listen((onData) {
       print("MAIN, received: " + onData.toString());
+      Map value = json.decode(onData.toString());
+      print("After converted to map ! " + value.toString());
     });
 
 

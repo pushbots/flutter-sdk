@@ -10,7 +10,8 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
-import java.util.*
+import org.json.JSONException
+import org.json.JSONObject
 
 
 class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : MethodCallHandler {
@@ -85,12 +86,12 @@ class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : Metho
             "receiveCallback" -> {
                 Pushbots.sharedInstance().receivedCallback { bundle ->
                     Log.d("PushbotsPlugin", "received: $bundle")
-                    channel.invokeMethod("received", bundleToMap(bundle))
+                    channel.invokeMethod("received", bundleToJson(bundle))
                 }
             }
             "openCallback" -> {
                 Pushbots.sharedInstance().openedCallback { bundle ->
-                    result.success(bundleToMap(bundle))
+                    result.success(bundleToJson(bundle))
                 }
             }
             "idsCallback" -> {
@@ -106,30 +107,19 @@ class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : Metho
     }
 
 
-    fun bundleToMap(extras: Bundle): Map<String, String> {
-        val map: MutableMap<String, String> = HashMap()
-        val ks = extras.keySet()
-        val iterator: Iterator<String> = ks.iterator()
-        while (iterator.hasNext()) {
-            val key = iterator.next()
-            map[key] = extras.get(key)!!.toString()
+
+    private fun bundleToJson(bundle: Bundle): String {
+        val json = JSONObject()
+        val keys = bundle.keySet()
+        for (key in keys) {
+            try {
+                json.put(key, bundle[key])
+                //json.put(key, JSONObject.wrap(bundle.get(key)));
+            } catch (e: JSONException) {
+            }
         }
-        return map
+        return json.toString()
     }
 
-    /**
-     * fun bundleToJson(bundle: Bundle): String {
-    val json = JSONObject()
-    val keys = bundle.keySet()
-    for (key in keys) {
-    try {
-    json.put(key, bundle[key])
-    //json.put(key, JSONObject.wrap(bundle.get(key)));
-    } catch (e: JSONException) {
-    }
-    }
-    return json.toString()
-    }
-     */
 
 }
