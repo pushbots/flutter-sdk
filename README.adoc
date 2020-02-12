@@ -1,24 +1,118 @@
-= PushBots
+A library for Dart developers. Help you manage notifications easily and effectively.
 
-PushBots Flutter&#x27;s SDK
-
-
-== https://github.com/pushbots/flutter-sdk/tree/master/example[Check the documentation for more information]
+== Usage
 
 
+Use this package as a library
 
+*1- Depend on it*
 
-== Run the App:-
+Add this to your package's `pubspec.yaml` file:
+
+[source, bash]
+----
+dependencies:
+  pushbots: ^0.0.4
+----
+
 <<<
-=== 1. Clone the Repository
 
-`git clone https://github.com/pushbots/flutter-sdk.git`
+*2- Install it*
+
+You can install packages from the command line:
+
+with Flutter:
+
+[source, bash]
+----
+$ flutter pub get
+----
+<<<
+Alternatively, your editor might support flutter pub get. Check the docs for your editor to learn more.
+
+<<<
 
 
-=== 2.Move the the example
-`cd example`
+*3- Import it*
 
-=== 3. Run the App
-`flutter run`, If you are running it for first time, it should be slow..
+Now in your Dart code, you can use:
+
+[source, bash]
+----
+import 'package:pushbots/pushbots.dart';
+----
+
+<<<
+=== Android Setup
+
+Add to `defaultConfig` section, then replace `PUSHBOTS_APP_ID` and `GOOGLE_SENDER_ID`
+
+[source,groovy]
+----
+defaultConfig {
+        // Add PushBots integration data
+        manifestPlaceholders = [
+                pushbots_app_id               : "YOUR_APP_ID",
+                pushbots_loglevel             : "DEBUG",
+                google_sender_id              : "YOUR_SENDER_ID"
+        ]
+
+    }
+
+----
+<<<
 
 
+
+=== Flutter Usage
+
+
+
+
+
+
+Once added `pushbots` into your `pubspec.yaml`.
+
+==== Initializing PushBots:-
+
+You can start by initializing the `PushBots` by calling `Pushbots.init();`
+
+==== Register For RemoteNotification:-
+
+Register for notification by `Pushbots.registerForNotification();`
+
+
+<<<
+
+Listen for notifiers (receive, open) notifications:-
+
+[source,dart]
+----
+ Pushbots.listenForNotificationReceive().stream.listen((onData) {
+      print("MAIN, received: " + onData.toString());
+    });
+
+ Pushbots.listenForNotificationOpen().stream.listen((onData){
+      print("MAIN, opened: " + onData.toString());
+    });
+----
+<<<
+
+Update User info:-
+
+[source, dart]
+.main.dart
+----
+Pushbots.setName("Pushbotter");
+Pushbots.setFirstName("FirstName");
+Pushbots.setLastName("LastName");
+Pushbots.setEmail("email@email.com");
+Pushbots.setAlias("Alias");
+
+----
+
+
+
+== Feature and bugs
+
+Please fill issue on https://github.com/pushbots or https://stackoverflow.com/questions/tagged/pushbots

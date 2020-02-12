@@ -36,7 +36,11 @@ class _MyAppState extends State<MyApp> {
       print("MAIN, opened: " + onData.toString());
     });
 
-    Pushbots.setAlias("Pushbotter");
+    Pushbots.setName("Pushbotter");
+    Pushbots.setFirstName("Pushbots");
+    Pushbots.setLastName("Pushbots");
+    Pushbots.setEmail("info@pushbots.com");
+    Pushbots.setPhone("000111222333");
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
