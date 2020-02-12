@@ -99,6 +99,24 @@ class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : Metho
                     result.success(listOf(s, s2))
                 }
             }
+            "setLogLevel" -> {
+                Pushbots.setLogLevel(call.argument("logcatLevel"), call.argument("uiLevel"))
+            }
+            "shareLocation" -> {
+                val isTracking = call.arguments as Boolean
+                Pushbots.shareLocation(isTracking)
+            }
+            "isInitialized" -> {
+                channel.invokeMethod("initialize", Pushbots.isInitialized())
+            }
+
+            "isRegistered" -> {
+                channel.invokeMethod("register",Pushbots.isRegistered())
+            }
+
+            "isSharingLocation" -> {
+                channel.invokeMethod("sharingLocation",Pushbots.isSharingLocation())
+            }
             else -> {
                 result.notImplemented()
             }

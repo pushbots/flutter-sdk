@@ -9,6 +9,9 @@ class Pushbots {
   static StreamController<String> notificationOpen =
       new StreamController<String>();
   static StreamController<String> ids = new StreamController<String>();
+  static StreamController<String> initialized = new StreamController<String>();
+  static StreamController<String> sharingLocation = new StreamController<String>();
+  static StreamController<String> registered = new StreamController<String>();
 
   static Future<String> init() async {
     _channel.setMethodCallHandler(_handleMethod);
@@ -67,6 +70,15 @@ class Pushbots {
     return _channel.invokeMethod("toggleNotifications", statue);
   }
 
+  static Future<String> setLogLevel(String logcatLevel, String uiLevel) {
+    return _channel.invokeMethod("setLogLevel", [logcatLevel, uiLevel]);
+  }
+
+  static Future<String> shareLocation(bool isTracking){
+    return _channel.invokeMethod("shareLocation", isTracking);
+  }
+
+
   static StreamController<String> listenForNotificationReceive() {
     _channel.invokeMapMethod("receiveCallback");
     return notificationReceive;
@@ -82,6 +94,20 @@ class Pushbots {
     return ids;
   }
 
+  static StreamController<String> isInitialized() {
+    _channel.invokeMethod("isInitialized");
+    return initialized;
+  }
+
+  static StreamController<String> isRegistered() {
+    _channel.invokeMethod("isRegistered");
+    return registered;
+  }
+
+  static StreamController<String> isSharingLocation() {
+    _channel.invokeMethod("isSharingLocation");
+    return sharingLocation;
+  }
   static Future<dynamic> _handleMethod(MethodCall call) async {
     print("PushBots.dart: Called");
     switch (call.method) {
@@ -95,6 +121,15 @@ class Pushbots {
         break;
       case "ids":
         ids.add(call.arguments.toString());
+        break;
+      case "initialize":
+        initialized.add(call.arguments.toString());
+        break;
+      case "register":
+        registered.add(call.arguments.toString());
+        break;
+      case "sharingLocation":
+        sharingLocation.add(call.arguments.toString());
         break;
     }
   }
