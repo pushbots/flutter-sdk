@@ -1,3 +1,5 @@
+= PushBots Flutter SDK
+
 A library for Dart developers. Help you manage notifications easily and effectively.
 
 == Usage
