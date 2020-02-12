@@ -3,7 +3,7 @@
 PushBots Flutter&#x27;s SDK
 
 
-== https://github.com/pushbots/flutter-sdk/example[Check the documentation for more information]
+== https://github.com/pushbots/flutter-sdk/tree/master/example[Check the documentation for more information]
 
 
 
