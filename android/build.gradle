@@ -42,6 +42,6 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation 'com.pushbots:pushbots-lib:3.2.8@aar'
+    implementation 'com.pushbots:pushbots-lib:3.2.14@aar'
     implementation 'com.google.firebase:firebase-messaging:20.0.1'
 }

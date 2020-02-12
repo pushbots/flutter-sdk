@@ -32,6 +32,11 @@ class _MyAppState extends State<MyApp> {
     });
 
 
+    Pushbots.listenForNotificationOpen().stream.listen((onData){
+      print("MAIN, opened: " + onData.toString());
+    });
+
+    Pushbots.setAlias("Pushbotter");
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
