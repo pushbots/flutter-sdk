@@ -2,7 +2,10 @@
 
 PushBots Flutter&#x27;s SDK
 
-Created using latest Flutter stable version `v1.13.2`
+
+== https://github.com/pushbots/flutter-sdk/example[Check the documentation for more information]
+
+
 
 
 == Run the App:-
