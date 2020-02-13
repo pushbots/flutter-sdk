@@ -5,11 +5,11 @@ import CoreLocation
 import WebKit
 import CoreTelephony
 
-public class SwiftFlutterPushbotsPlugin: NSObject, FlutterPlugin {
+public class SwiftPushbotsFlutterPlugin: NSObject, FlutterPlugin {
     static var channel:FlutterMethodChannel!
     public static func register(with registrar: FlutterPluginRegistrar) {
-        channel = FlutterMethodChannel(name: "flutter_pushbots", binaryMessenger: registrar.messenger())
-        let instance = SwiftFlutterPushbotsPlugin()
+        channel = FlutterMethodChannel(name: "pushbots_flutter", binaryMessenger: registrar.messenger())
+        let instance = SwiftPushbotsFlutterPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
     
@@ -18,9 +18,9 @@ public class SwiftFlutterPushbotsPlugin: NSObject, FlutterPlugin {
         case "initialize":
             Pushbots.initWithAppId(call.arguments as? String, withLaunchOptions: nil, prompt: true, receivedNotification:
                 { (notificationRecievied) in
-                SwiftFlutterPushbotsPlugin.channel.invokeMethod("received", arguments: notificationRecievied)
+                SwiftPushbotsFlutterPlugin.channel.invokeMethod("received", arguments: notificationRecievied)
             }) { (openedNotification) in
-                SwiftFlutterPushbotsPlugin.channel.invokeMethod("opened", arguments: openedNotification)
+                SwiftPushbotsFlutterPlugin.channel.invokeMethod("opened", arguments: openedNotification)
             }
         case "setAlias":
             Pushbots.setAlias(call.arguments as? String)
