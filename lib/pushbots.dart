@@ -10,7 +10,8 @@ class Pushbots {
       new StreamController<String>();
   static StreamController<String> ids = new StreamController<String>();
   static StreamController<String> initialized = new StreamController<String>();
-  static StreamController<String> sharingLocation = new StreamController<String>();
+  static StreamController<String> sharingLocation =
+      new StreamController<String>();
   static StreamController<String> registered = new StreamController<String>();
 
   static Future<String> init() async {
@@ -77,10 +78,9 @@ class Pushbots {
     });
   }
 
-  static Future<String> shareLocation(bool isTracking){
+  static Future<String> shareLocation(bool isTracking) {
     return _channel.invokeMethod("shareLocation", isTracking);
   }
-
 
   static StreamController<String> listenForNotificationReceive() {
     _channel.invokeMapMethod("receiveCallback");
@@ -111,6 +111,7 @@ class Pushbots {
     _channel.invokeMethod("isSharingLocation");
     return sharingLocation;
   }
+
   static Future<dynamic> _handleMethod(MethodCall call) async {
     print("PushBots.dart: Called");
     switch (call.method) {

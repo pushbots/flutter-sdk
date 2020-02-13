@@ -32,8 +32,7 @@ class _MyAppState extends State<MyApp> {
       print("After converted to map ! " + value.toString());
     });
 
-
-    Pushbots.listenForNotificationOpen().stream.listen((onData){
+    Pushbots.listenForNotificationOpen().stream.listen((onData) {
       print("MAIN, opened: " + onData.toString());
     });
 
