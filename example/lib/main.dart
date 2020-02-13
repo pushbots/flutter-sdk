@@ -24,6 +24,7 @@ class _MyAppState extends State<MyApp> {
 
     initPushBots();
     registerForNotification();
+    Pushbots.setLogLevel("DEBUG", "INFO");
 
     Pushbots.listenForNotificationReceive().stream.listen((onData) {
       print("MAIN, received: " + onData.toString());
@@ -41,6 +42,7 @@ class _MyAppState extends State<MyApp> {
     Pushbots.setLastName("Pushbots");
     Pushbots.setEmail("info@pushbots.com");
     Pushbots.setPhone("000111222333");
+    //Pushbots.shareLocation(true);
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.

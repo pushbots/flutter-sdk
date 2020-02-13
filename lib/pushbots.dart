@@ -71,7 +71,10 @@ class Pushbots {
   }
 
   static Future<String> setLogLevel(String logcatLevel, String uiLevel) {
-    return _channel.invokeMethod("setLogLevel", [logcatLevel, uiLevel]);
+    return _channel.invokeMethod("setLogLevel", <String, dynamic>{
+      'logcatLevel': logcatLevel,
+      'uiLevel': uiLevel,
+    });
   }
 
   static Future<String> shareLocation(bool isTracking){

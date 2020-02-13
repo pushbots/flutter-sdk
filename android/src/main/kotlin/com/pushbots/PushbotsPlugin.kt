@@ -12,6 +12,12 @@ import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 import org.json.JSONException
 import org.json.JSONObject
+import java.util.logging.Level.WARNING
+
+import android.util.Log.VERBOSE
+
+
+
 
 
 class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : MethodCallHandler {
@@ -100,7 +106,11 @@ class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : Metho
                 }
             }
             "setLogLevel" -> {
-                Pushbots.setLogLevel(call.argument("logcatLevel"), call.argument("uiLevel"))
+                val logcatLevel : String = call.argument<String>("logcatLevel") as String
+                val uiLevel : String = call.argument<String>("uiLevel") as String
+
+                Pushbots.setLogLevel(getLogLevel(logcatLevel),
+                        getLogLevel(uiLevel))
             }
             "shareLocation" -> {
                 val isTracking = call.arguments as Boolean
@@ -139,5 +149,22 @@ class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : Metho
         return json.toString()
     }
 
+    fun getLogLevel(logLevel: String): Pushbots.LOG_LEVEL {
+        return if (logLevel == "DEBUG") {
+            Pushbots.LOG_LEVEL.DEBUG
+        } else if (logLevel == "VERBOSE") {
+            Pushbots.LOG_LEVEL.VERBOSE
+        } else if (logLevel == "INFO") {
+            Pushbots.LOG_LEVEL.INFO
+        } else if (logLevel == "WARNING") {
+            Pushbots.LOG_LEVEL.WARNING
+        } else if (logLevel == "ERROR") {
+            Pushbots.LOG_LEVEL.ERROR
+        } else if (logLevel == "WTF") {
+            Pushbots.LOG_LEVEL.WTF
+        } else {
+            Pushbots.LOG_LEVEL.NONE
+        }
+    }
 
 }
