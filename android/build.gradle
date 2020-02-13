@@ -44,4 +44,5 @@ dependencies {
 
     implementation 'com.pushbots:pushbots-lib:3.2.14@aar'
     implementation 'com.google.firebase:firebase-messaging:20.0.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
 }
