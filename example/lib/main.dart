@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
   Future<void> initPushBots() async {
     String initStatue;
     try {
-      initStatue = await PushbotsFlutter.initialize("5e145ec41f0f854fca1e2b54");;
+      initStatue = await PushbotsFlutter.initialize("5e145ec41f0f854fca1e2b54");
     } on Exception {
       initStatue = 'Failed to get initialize push-bots.';
     }

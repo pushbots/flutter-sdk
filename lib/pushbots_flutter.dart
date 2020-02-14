@@ -24,10 +24,10 @@ class PushbotsFlutter {
   new StreamController<String>();
   static StreamController<String> registered = new StreamController<String>();
   
-   static Future<String> initialize(String id) async {
+   static Future<dynamic> initialize(String id) async {
   	 _channel.setMethodCallHandler(_handleMethod);
-     return _channel.invokeMethod('initialize', id).whenComplete((){
-       _channel.invokeMethod("registerForNotification");
+      return _channel.invokeMethod('initialize', id).whenComplete((){
+         _channel.invokeMethod("registerForNotification");
      });
    }
 

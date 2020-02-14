@@ -23,6 +23,7 @@ public class SwiftPushbotsFlutterPlugin: NSObject, FlutterPlugin {
                }
            case "setAlias":
                Pushbots.setAlias(call.arguments as? String)
+        
            case "removeAlias":
                Pushbots.removeAlias()
            case "setTags":
