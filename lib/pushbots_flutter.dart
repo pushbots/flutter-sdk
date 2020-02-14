@@ -19,11 +19,16 @@ class PushbotsFlutter {
   static StreamController<String> notificationRegistered =
  	      new StreamController<String>();
    static StreamController<String> userIDs = new StreamController<String>();
+  static StreamController<String> initialized = new StreamController<String>();
+  static StreamController<String> sharingLocation =
+  new StreamController<String>();
+  static StreamController<String> registered = new StreamController<String>();
   
    static Future<String> initialize(String id) async {
   	 _channel.setMethodCallHandler(_handleMethod);
-      print("intialization in dart ");
-     return _channel.invokeMethod('initialize', id);
+     return _channel.invokeMethod('initialize', id).whenComplete((){
+       _channel.invokeMethod("registerForNotification");
+     });
    }
 
    static Future<String> setAlias(String alias) async {
@@ -100,6 +105,35 @@ class PushbotsFlutter {
      return _channel.invokeMethod("toggleNotifications", statue);
    }
 
+  static StreamController<String> listenForNotificationReceive() {
+    _channel.invokeMapMethod("receiveCallback");
+    return notificationReceive;
+  }
+
+  static StreamController<String> listenForNotificationOpen() {
+    _channel.invokeMapMethod("openCallback");
+    return notificationOpen;
+  }
+
+  static StreamController<String> listenForNotificationIds() {
+    _channel.invokeMethod("idsCallback");
+    return userIDs;
+  }
+
+  static StreamController<String> isInitialized() {
+    _channel.invokeMethod("isInitialized");
+    return initialized;
+  }
+
+  static StreamController<String> isRegistered() {
+    _channel.invokeMethod("isRegistered");
+    return registered;
+  }
+
+  static StreamController<String> isSharingLocation() {
+    _channel.invokeMethod("isSharingLocation");
+    return sharingLocation;
+  }
 
    static Future<dynamic> _handleMethod(MethodCall call) async {
      print("PushBots.dart: Called");
@@ -113,9 +147,18 @@ class PushbotsFlutter {
          break;
        case "registered":
          notificationOpen.add(call.arguments.toString());
-         break;	
+         break;
        case "userIDs":
          userIDs.add(call.arguments.toString());
+         break;
+       case "initialized":
+         initialized.add(call.arguments.toString());
+         break;
+       case "registered":
+         registered.add(call.arguments.toString());
+         break;
+       case "sharingLocation":
+         sharingLocation.add(call.arguments.toString());
          break;
      }
    }

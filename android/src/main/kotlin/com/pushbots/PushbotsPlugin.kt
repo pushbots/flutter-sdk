@@ -15,16 +15,14 @@ import org.json.JSONObject
 import java.util.logging.Level.WARNING
 
 import android.util.Log.VERBOSE
-
-
-
+import org.json.JSONArray
 
 
 class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : MethodCallHandler {
     companion object {
         @JvmStatic
         fun registerWith(registrar: Registrar) {
-            val channel = MethodChannel(registrar.messenger(), "pushbots")
+            val channel = MethodChannel(registrar.messenger(), "pushbots_flutter")
             channel.setMethodCallHandler(PushbotsPlugin(registrar.activity(), channel))
         }
     }
@@ -33,7 +31,7 @@ class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : Metho
     var receiveResult: Result? = null;
     override fun onMethodCall(call: MethodCall, result: Result) {
         when (call.method) {
-            "init" -> {
+            "initialize" -> {
                 // Initialize PushBots
                 Pushbots.sharedInstance().init(activity)
                 result.success("PushBots Initialized Successfully")
@@ -56,6 +54,14 @@ class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : Metho
             "untag" -> {
                 val tag = call.arguments as String
                 Pushbots.untag(tag)
+            }
+            "setTags" -> {
+                val list = call.arguments as List<*>
+                Pushbots.tag(JSONArray(list))
+            }
+            "removeTags" -> {
+                val list = call.arguments as List<*>
+                Pushbots.untag(JSONArray(list))
             }
             "setName" -> {
                 val name = call.arguments as String
@@ -91,18 +97,17 @@ class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : Metho
             }
             "receiveCallback" -> {
                 Pushbots.sharedInstance().receivedCallback { bundle ->
-                    Log.d("PushbotsPlugin", "received: $bundle")
                     channel.invokeMethod("received", bundleToJson(bundle))
                 }
             }
             "openCallback" -> {
                 Pushbots.sharedInstance().openedCallback { bundle ->
-                    result.success(bundleToJson(bundle))
+                    channel.invokeMethod("opened", bundleToJson(bundle))
                 }
             }
             "idsCallback" -> {
                 Pushbots.sharedInstance().idsCallback { s, s2 ->
-                    result.success(listOf(s, s2))
+                    channel.invokeMethod("userIDs", listOf(s, s2))
                 }
             }
             "setLogLevel" -> {
@@ -117,11 +122,11 @@ class PushbotsPlugin(val activity: Activity, val channel: MethodChannel) : Metho
                 Pushbots.shareLocation(isTracking)
             }
             "isInitialized" -> {
-                channel.invokeMethod("initialize", Pushbots.isInitialized())
+                channel.invokeMethod("initialized", Pushbots.isInitialized())
             }
 
             "isRegistered" -> {
-                channel.invokeMethod("register",Pushbots.isRegistered())
+                channel.invokeMethod("registered",Pushbots.isRegistered())
             }
 
             "isSharingLocation" -> {
