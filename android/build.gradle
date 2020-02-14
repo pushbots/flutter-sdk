@@ -1,4 +1,4 @@
-group 'com.pushbots'
+group 'com.pushbots_flutter'
 version '1.0-SNAPSHOT'
 
 buildscript {
