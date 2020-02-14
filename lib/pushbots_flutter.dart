@@ -101,6 +101,13 @@ class PushbotsFlutter {
      return _channel.invokeMethod("debug", debug);
    }
 
+  static Future<String> setLogLevel(String logcatLevel, String uiLevel) {
+    return _channel.invokeMethod("setLogLevel", <String, dynamic>{
+      'logcatLevel': logcatLevel,
+      'uiLevel': uiLevel,
+    });
+  }
+
    static Future<String> toggleNotifications(bool statue) async {
      return _channel.invokeMethod("toggleNotifications", statue);
    }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:pushbots_flutter/pushbots_flutter.dart';
 
 void main() => runApp(MyApp());
@@ -12,7 +10,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  String pbInitState = 'PushBots did not initialized yet...';
+  String pbRegisterInfo = 'PushBots Register Status';
+
+  bool switchState = true;
 
   @override
   void initState() {
@@ -34,17 +35,42 @@ class _MyAppState extends State<MyApp> {
 
 
 
+  Future<void> initPushBots() async {
+    String initStatue;
+    try {
+      initStatue = await PushbotsFlutter.initialize("5e145ec41f0f854fca1e2b54");;
+    } on Exception {
+      initStatue = 'Failed to get initialize push-bots.';
+    }
+    setState(() {
+      pbInitState = initStatue;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Plugin PushBots app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: new Column(
+            children: <Widget>[
+              Text('$pbInitState\n'),
+              Switch(
+                value: switchState,
+                onChanged: (val) => setState(() {
+                  switchState = val;
+                  PushbotsFlutter.toggleNotifications(switchState);
+                }),
+              ),
+              Text('$pbRegisterInfo\n'),
+            ],
+          ),
         ),
       ),
     );
   }
+
 }
