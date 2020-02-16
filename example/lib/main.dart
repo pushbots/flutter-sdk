@@ -18,13 +18,13 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    PushbotsFlutter.initialize("5e145ec41f0f854fca1e2b54");
-	PushbotsFlutter.setLogLevelWithUI(LogLevels.verbose.index, true);
- 	print("setLogLevelWithUI"+LogLevels.verbose.toString());
-	PushbotsFlutter.setTags(["tag1","tag2"]);
-	PushbotsFlutter.removeTags(["tag1"]);
-	PushbotsFlutter.shareLocationPrompt(true);
-	
+    initPushBots();
+    PushbotsFlutter.setLogLevelWithUI(LogLevels.verbose.index, true);
+    print("setLogLevelWithUI" + LogLevels.verbose.toString());
+    PushbotsFlutter.setTags(["tag1", "tag2"]);
+    PushbotsFlutter.removeTags(["tag1"]);
+    PushbotsFlutter.shareLocationPrompt(true);
+
     PushbotsFlutter.notificationOpen.stream.listen((onData) {
       print("Main Dart opened: " + onData.toString());
     });
@@ -32,8 +32,6 @@ class _MyAppState extends State<MyApp> {
       print("Main Dart userIDs: " + onData.toString());
     });
   }
-
-
 
   Future<void> initPushBots() async {
     String initStatue;
@@ -72,5 +70,4 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
-
 }
