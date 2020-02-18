@@ -77,7 +77,7 @@ Once added `pushbots_flutter` into your `pubspec.yaml`.
 #### Initializing PushBots:-
 
 
-You can start by initializing the `PushBotsFlutter` by calling **`PushBotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`**
+You can start by initializing the `PushBotsFlutter` by calling **`PushbotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`**
 
 
 
@@ -85,11 +85,11 @@ Listen for notifiers (receive, open) notifications:-
 
 
 ````
- PushBotsFlutter.listenForNotificationReceive().stream.listen((onData) {
+ PushbotsFlutter.listenForNotificationReceive().stream.listen((onData) {
       print("MAIN, received: " + onData.toString());
     });
 
- PushBotsFlutter.listenForNotificationOpen().stream.listen((onData){
+ PushbotsFlutter.listenForNotificationOpen().stream.listen((onData){
       print("MAIN, opened: " + onData.toString());
     });
 ````
@@ -100,43 +100,43 @@ Update User info:-
 
 
 ````
-PushBotsFlutter.setName("Pushbotter");
-PushBotsFlutter.setFirstName("FirstName");
-PushBotsFlutter.setLastName("LastName");
-PushBotsFlutter.setEmail("email@email.com");
-PushBotsFlutter.setAlias("Alias");
-PushBotsFlutter.setPhone("phoneNumber");
+PushbotsFlutter.setName("Pushbotter");
+PushbotsFlutter.setFirstName("FirstName");
+PushbotsFlutter.setLastName("LastName");
+PushbotsFlutter.setEmail("email@email.com");
+PushbotsFlutter.setAlias("Alias");
+PushbotsFlutter.setPhone("phoneNumber");
 
 
 ````
 Other Methods: 
 ````
-PushBotsFlutter.debug(true);
+PushbotsFlutter.debug(true);
 //Track event
-PushBotsFlutter.trackEvent("added_to_cart");
+PushbotsFlutter.trackEvent("added_to_cart");
 
 //ShareLocation with prompting
-PushBotsFlutter.shareLocation(true);
+PushbotsFlutter.shareLocation(true);
 
 //unsubscribe user from receiving notifications
-PushBotsFlutter.toggleNotifications(false);
+PushbotsFlutter.toggleNotifications(false);
 
-PushBotsFlutter.setTags(["tag1", "tag2"]);
+PushbotsFlutter.setTags(["tag1", "tag2"]);
 
-PushBotsFlutter.removeTags(["tag1"]);
+PushbotsFlutter.removeTags(["tag1"]);
 
 //  ---- iOS 
 //Set log level with alert
 //Log Levels :  noLog, error, warn, info, verbose
-PushBotsFlutter.setLogLevelWithUI(LogLevels.verbose.index,true);
+PushbotsFlutter.setLogLevelWithUI(LogLevels.verbose.index,true);
 //Reset Badge
-PushBotsFlutter.resetBadge();
+PushbotsFlutter.resetBadge();
 //Set badge
-PushBotsFlutter.setBadge(10);
+PushbotsFlutter.setBadge(10);
 //Increment badge count
-PushBotsFlutter.incrementBadgeCountBy(1);
+PushbotsFlutter.incrementBadgeCountBy(1);
 //Decrement badge count
-PushBotsFlutter.decrementBadgeCountBy(10);
+PushbotsFlutter.decrementBadgeCountBy(10);
 
 
 ````
