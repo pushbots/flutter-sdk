@@ -107,10 +107,7 @@ PushBotsFlutter.setFirstName("FirstName");
 PushBotsFlutter.setLastName("LastName");
 PushBotsFlutter.setEmail("email@email.com");
 PushBotsFlutter.setAlias("Alias");
-<<<<<<< HEAD
-=======
 PushBotsFlutter.setPhone("phoneNumber");
->>>>>>> ios-fix
 
 ````
 ##### Other Methods: 

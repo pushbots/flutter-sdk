@@ -19,8 +19,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     initPushBots();
-    PushbotsFlutter.setLogLevelWithUI(LogLevels.verbose.index, true);
-    print("setLogLevelWithUI" + LogLevels.verbose.toString());
+ 
     PushbotsFlutter.setTags(["tag1", "tag2"]);
     PushbotsFlutter.removeTags(["tag1"]);
     PushbotsFlutter.shareLocation(true);
@@ -31,9 +30,6 @@ class _MyAppState extends State<MyApp> {
 
     PushbotsFlutter.listenForNotificationReceive().stream.listen((onData) {
       print("Main Dart recieved: " + onData.toString());
-    });
-    PushbotsFlutter.userIDs.stream.listen((onData) {
-      print("Main Dart userIDs: " + onData.toString());
     });
   }
 
