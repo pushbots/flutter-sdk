@@ -77,15 +77,11 @@ Once added `pushbots_flutter` into your `pubspec.yaml`.
 #### Initializing PushBots:-
 
 
-You can start by initializing the `PushBotsFlutter` by calling `PushBotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`
+You can start by initializing the `PushBotsFlutter` 
+by calling `PushBotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`
 
 
-#### Register For RemoteNotification:-
-
-Register for notification by `PushBotsFlutter.registerForNotification();`
-
-
-
+#### Listen For RemoteNotification:-
 
 Listen for notifiers (receive, open) notifications:-
 
@@ -111,9 +107,13 @@ PushBotsFlutter.setFirstName("FirstName");
 PushBotsFlutter.setLastName("LastName");
 PushBotsFlutter.setEmail("email@email.com");
 PushBotsFlutter.setAlias("Alias");
+<<<<<<< HEAD
+=======
+PushBotsFlutter.setPhone("phoneNumber");
+>>>>>>> ios-fix
 
 ````
-Other Methods: 
+##### Other Methods: 
 ````
 PushBotsFlutter.debug(true);
 //Track event
@@ -128,8 +128,9 @@ PushBotsFlutter.toggleNotifications(false);
 PushBotsFlutter.setTags(["tag1", "tag2"]);
 
 PushBotsFlutter.removeTags(["tag1"]);
-
-//  ---- iOS 
+````
+##### iOS Methods
+````
 //Set log level with alert
 //Log Levels :  noLog, error, warn, info, verbose
 PushBotsFlutter.setLogLevelWithUI(LogLevels.verbose.index,true);
@@ -141,11 +142,13 @@ PushBotsFlutter.setBadge(10);
 PushBotsFlutter.incrementBadgeCountBy(1);
 //Decrement badge count
 PushBotsFlutter.decrementBadgeCountBy(10);
-
-// ---- Android methods
-
-
 ````
+
+##### Android Methods
+````
+PushBotsFlutter.setLogLevel("DEBUG", "NONE")
+````
+
 
 
 
