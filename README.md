@@ -14,7 +14,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ````
 dependencies:
-  pushbots_flutter: ^0.0.4
+  pushbots_flutter: ^1.0.0-beta1
 ````
 
 
@@ -80,12 +80,6 @@ Once added `pushbots_flutter` into your `pubspec.yaml`.
 You can start by initializing the `PushBotsFlutter` by calling `PushBotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`
 
 
-#### Register For RemoteNotification:-
-
-Register for notification by `PushBotsFlutter.registerForNotification();`
-
-
-
 
 Listen for notifiers (receive, open) notifications:-
 
@@ -141,8 +135,6 @@ PushBotsFlutter.setBadge(10);
 PushBotsFlutter.incrementBadgeCountBy(1);
 //Decrement badge count
 PushBotsFlutter.decrementBadgeCountBy(10);
-
-// ---- Android methods
 
 
 ````
