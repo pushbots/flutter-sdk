@@ -108,7 +108,7 @@ PushBotsFlutter.setAlias("Alias");
 PushBotsFlutter.setPhone("phoneNumber");
 
 ````
-Other Methods: 
+##### Other Methods: 
 ````
 PushBotsFlutter.debug(true);
 //Track event
@@ -123,8 +123,9 @@ PushBotsFlutter.toggleNotifications(false);
 PushBotsFlutter.setTags(["tag1", "tag2"]);
 
 PushBotsFlutter.removeTags(["tag1"]);
-
-//  ---- iOS 
+````
+##### iOS Methods
+````
 //Set log level with alert
 //Log Levels :  noLog, error, warn, info, verbose
 PushBotsFlutter.setLogLevelWithUI(LogLevels.verbose.index,true);
@@ -136,11 +137,13 @@ PushBotsFlutter.setBadge(10);
 PushBotsFlutter.incrementBadgeCountBy(1);
 //Decrement badge count
 PushBotsFlutter.decrementBadgeCountBy(10);
-
-// ---- Android methods
-PushBotsFlutter.setLogLevel("DEBUG", "NONE")
-
 ````
+
+##### Android Methods
+````
+PushBotsFlutter.setLogLevel("DEBUG", "NONE")
+````
+
 
 
 
