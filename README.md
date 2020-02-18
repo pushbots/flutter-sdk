@@ -14,7 +14,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ````
 dependencies:
-  pushbots_flutter: ^0.0.4
+  pushbots_flutter: ^1.0.0-beta1
 ````
 
 
@@ -77,11 +77,9 @@ Once added `pushbots_flutter` into your `pubspec.yaml`.
 #### Initializing PushBots:-
 
 
-You can start by initializing the `PushBotsFlutter` 
-by calling `PushBotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`
+You can start by initializing the `PushBotsFlutter` by calling `PushBotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`
 
 
-#### Listen For RemoteNotification:-
 
 Listen for notifiers (receive, open) notifications:-
 
@@ -109,8 +107,9 @@ PushBotsFlutter.setEmail("email@email.com");
 PushBotsFlutter.setAlias("Alias");
 PushBotsFlutter.setPhone("phoneNumber");
 
+
 ````
-##### Other Methods: 
+Other Methods: 
 ````
 PushBotsFlutter.debug(true);
 //Track event
@@ -125,9 +124,8 @@ PushBotsFlutter.toggleNotifications(false);
 PushBotsFlutter.setTags(["tag1", "tag2"]);
 
 PushBotsFlutter.removeTags(["tag1"]);
-````
-##### iOS Methods
-````
+
+//  ---- iOS 
 //Set log level with alert
 //Log Levels :  noLog, error, warn, info, verbose
 PushBotsFlutter.setLogLevelWithUI(LogLevels.verbose.index,true);
@@ -139,13 +137,9 @@ PushBotsFlutter.setBadge(10);
 PushBotsFlutter.incrementBadgeCountBy(1);
 //Decrement badge count
 PushBotsFlutter.decrementBadgeCountBy(10);
-````
 
-##### Android Methods
-````
-PushBotsFlutter.setLogLevel("DEBUG", "NONE")
-````
 
+````
 
 
 
