@@ -1,10 +1,6 @@
 name: pushbots_flutter
 description: PushBots SDK, help you manage push notifications easily and effectivly.
 version: 0.0.1
-authors:
-  - Abdullah Diaa
-  - Bathan Hegazy
-  - Ibrahim Ali
 homepage: https://pushbots.com/
 repository: https://github.com/pushbots/flutter-sdk
 

@@ -14,7 +14,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ````
 dependencies:
-  pushbots: ^0.0.4
+  pushbots_flutter: ^0.0.4
 ````
 
 
@@ -40,7 +40,7 @@ Alternatively, your editor might support flutter pub get. Check the docs for you
 Now in your Dart code, you can use:
 
 ````
-import 'package:pushbots/pushbots.dart';
+import 'package:pushbots_flutter/pushbots_flutter.dart';
 ````
 
 
@@ -72,15 +72,15 @@ defaultConfig {
 
 
 
-Once added `pushbots` into your `pubspec.yaml`.
+Once added `pushbots_flutter` into your `pubspec.yaml`.
 
 #### Initializing PushBots:-
 
-You can start by initializing the `PushBots` by calling `Pushbots.init();`
+You can start by initializing the `PushBotsFlutter` by calling `PushBotsFlutter.init();`
 
 #### Register For RemoteNotification:-
 
-Register for notification by `Pushbots.registerForNotification();`
+Register for notification by `PushBotsFlutter.registerForNotification();`
 
 
 
@@ -89,11 +89,11 @@ Listen for notifiers (receive, open) notifications:-
 
 
 ````
- Pushbots.listenForNotificationReceive().stream.listen((onData) {
+ PushBotsFlutter.listenForNotificationReceive().stream.listen((onData) {
       print("MAIN, received: " + onData.toString());
     });
 
- Pushbots.listenForNotificationOpen().stream.listen((onData){
+ PushBotsFlutter.listenForNotificationOpen().stream.listen((onData){
       print("MAIN, opened: " + onData.toString());
     });
 ````
@@ -104,11 +104,11 @@ Update User info:-
 
 
 ````
-Pushbots.setName("Pushbotter");
-Pushbots.setFirstName("FirstName");
-Pushbots.setLastName("LastName");
-Pushbots.setEmail("email@email.com");
-Pushbots.setAlias("Alias");
+PushBotsFlutter.setName("Pushbotter");
+PushBotsFlutter.setFirstName("FirstName");
+PushBotsFlutter.setLastName("LastName");
+PushBotsFlutter.setEmail("email@email.com");
+PushBotsFlutter.setAlias("Alias");
 
 ````
 
