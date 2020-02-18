@@ -1,6 +1,6 @@
 
 
-## 0.0.1
+## 1.0.0-beta1
 
-* Initial Release
+* Initial Beta-Release
 

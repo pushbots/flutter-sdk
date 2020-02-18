@@ -77,7 +77,7 @@ Once added `pushbots_flutter` into your `pubspec.yaml`.
 #### Initializing PushBots:-
 
 
-You can start by initializing the `PushBotsFlutter` by calling `PushBotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`
+You can start by initializing the `PushBotsFlutter` by calling **`PushBotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`**
 
 
 
