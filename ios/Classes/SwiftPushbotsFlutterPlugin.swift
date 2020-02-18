@@ -32,10 +32,8 @@ public class SwiftPushbotsFlutterPlugin: NSObject, FlutterPlugin {
                Pushbots.untag(call.arguments as? [Any])
            case "trackEvent":
                Pushbots.trackEvent(call.arguments as? String)
-           case "shareLocationPrompt":
-               Pushbots.shareLocationPrompt(call.arguments as? Bool ?? false)
            case "shareLocation":
-               Pushbots.shareLocation(call.arguments as? Bool ?? false)
+               Pushbots.shareLocationPrompt(call.arguments as? Bool ?? false)
            case "setLogLevelWithUI":
                let arguments = call.arguments as? [Any]
                let level = arguments?[0] as? UInt ?? 0

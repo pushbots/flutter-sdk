@@ -76,7 +76,7 @@ Once added `pushbots` into your `pubspec.yaml`.
 
 #### Initializing PushBots:-
 
-You can start by initializing the `PushBots` by calling `Pushbots.init();`
+You can start by initializing the `PushBotsFlutter` by calling `PushBotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`
 
 #### Register For RemoteNotification:-
 
@@ -111,6 +111,42 @@ Pushbots.setEmail("email@email.com");
 Pushbots.setAlias("Alias");
 
 ````
+Other Methods: 
+````
+PushBotsFlutter.debug(true);
+//Track event
+PushBotsFlutter.trackEvent("added_to_cart");
+
+//ShareLocation with prompting
+PushBotsFlutter.shareLocation(true);
+
+//unsubscribe user from receiving notifications
+PushBotsFlutter.toggleNotifications(false);
+
+PushBotsFlutter.setTags(["tag1", "tag2"]);
+
+PushBotsFlutter.removeTags(["tag1"]);
+
+//  ---- iOS 
+//Set log level with alert
+//Log Levels :  noLog, error, warn, info, verbose
+PushBotsFlutter.setLogLevelWithUI(LogLevels.verbose.index,true);
+//Reset Badge
+PushBotsFlutter.resetBadge();
+//Set badge
+PushBotsFlutter.setBadge(10);
+//Increment badge count
+PushBotsFlutter.incrementBadgeCountBy(1);
+//Decrement badge count
+PushBotsFlutter.decrementBadgeCountBy(10);
+
+// ---- Android methods
+
+
+````
+
+
+
 
 
 

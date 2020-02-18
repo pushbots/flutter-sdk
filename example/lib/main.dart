@@ -23,10 +23,14 @@ class _MyAppState extends State<MyApp> {
     print("setLogLevelWithUI" + LogLevels.verbose.toString());
     PushbotsFlutter.setTags(["tag1", "tag2"]);
     PushbotsFlutter.removeTags(["tag1"]);
-    PushbotsFlutter.shareLocationPrompt(true);
+    PushbotsFlutter.shareLocation(true);
 
-    PushbotsFlutter.notificationOpen.stream.listen((onData) {
+    PushbotsFlutter.listenForNotificationOpen().stream.listen((onData) {
       print("Main Dart opened: " + onData.toString());
+    });
+
+    PushbotsFlutter.listenForNotificationReceive().stream.listen((onData) {
+      print("Main Dart recieved: " + onData.toString());
     });
     PushbotsFlutter.userIDs.stream.listen((onData) {
       print("Main Dart userIDs: " + onData.toString());
