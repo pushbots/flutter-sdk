@@ -79,12 +79,7 @@ Once added `pushbots` into your `pubspec.yaml`.
 You can start by initializing the `PushBotsFlutter` 
 by calling `PushBotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`
 
-#### Register For RemoteNotification:-
-
-Register for notification by `Pushbots.registerForNotification();`
-
-
-
+#### Listen For RemoteNotification:-
 
 Listen for notifiers (receive, open) notifications:-
 
