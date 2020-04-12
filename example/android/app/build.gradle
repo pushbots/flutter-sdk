@@ -46,9 +46,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         manifestPlaceholders = [
-                pushbots_app_id               : "5df2a69a4fab500cae70b895",
-                pushbots_loglevel             : "DEBUG",
-                google_sender_id              : "167560535142"
+                pushbots_app_id               : "",
+                pushbots_loglevel             : "",
+                google_sender_id              : ""
         ]
     }
 
