@@ -14,7 +14,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ````
 dependencies:
-  pushbots_flutter: ^1.0.0-beta1
+  pushbots_flutter: ^1.0.0-beta2
 ````
 
 
