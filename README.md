@@ -77,8 +77,10 @@ Once added `pushbots_flutter` into your `pubspec.yaml`.
 #### Initializing PushBots:-
 
 
-You can start by initializing the `PushBotsFlutter` by calling **`PushbotsFlutter.initialize("PUSHBOTS_APPLICATIONID");`**
+You can start by initializing the `PushBotsFlutter` by calling **`PushbotsFlutter.initialize("PUSHBOTS_APPLICATIONID", "YOUR_WEBAPI_KEY", "YOUR_FCM_APP_ID", "YOUR_PROJECT_ID");`**
 
+
+![Initialize Image](assets/fcm-info.png)
 
 
 Listen for notifiers (receive, open) notifications:-
