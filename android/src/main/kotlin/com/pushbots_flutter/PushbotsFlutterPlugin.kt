@@ -33,12 +33,11 @@ class PushbotsFlutterPlugin(val activity: Activity, val channel: MethodChannel) 
         when (call.method) {
             "initialize" -> {
                 // Initialize PushBots
-                Pushbots.sharedInstance().init(activity)
+                val webApiKey : String = call.argument<String>("webApiKey") as String
+                val fcmAppId : String = call.argument<String>("fcmAppId") as String
+                val projectId : String = call.argument<String>("projectId") as String
+                Pushbots.sharedInstance().initLatestFCM(activity, webApiKey, fcmAppId, projectId)
                 result.success("PushBots Initialized Successfully")
-            }
-            "registerForNotification" -> {
-                Pushbots.sharedInstance().registerForRemoteNotifications()
-                result.success("PushBots Registered For Remote Notification Successfully")
             }
             "setAlias" -> {
                 val alias = call.arguments as String
