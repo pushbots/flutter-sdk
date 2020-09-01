@@ -14,7 +14,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ````
 dependencies:
-  pushbots_flutter: ^1.0.0-beta2
+  pushbots_flutter: ^1.0.0
 ````
 
 
@@ -77,7 +77,7 @@ Once added `pushbots_flutter` into your `pubspec.yaml`.
 #### Initializing PushBots:-
 
 
-You can start by initializing the `PushBotsFlutter` by calling **`PushbotsFlutter.initialize("PUSHBOTS_APPLICATIONID", "YOUR_WEBAPI_KEY", "YOUR_FCM_APP_ID", "YOUR_PROJECT_ID");`**
+You can start by initializing the `PushBotsFlutter` by calling **`PushbotsFlutter.initialize("PUSHBOTS_APPLICATION_ID", "YOUR_WEBAPI_KEY", "YOUR_FCM_APP_ID", "YOUR_PROJECT_ID");`**
 
 
 ![Initialize Image](assets/fcm-info.png)
