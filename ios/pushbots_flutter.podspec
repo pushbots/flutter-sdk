@@ -4,19 +4,19 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'pushbots_flutter'
-  s.version          = '0.0.1'
-  s.summary          = 'A new flutter plugin project.'
-  s.description      = <<-DESC
-A new flutter plugin project.
-                       DESC
-  s.homepage         = 'http://example.com'
+  s.version          = '1.0.1'
+  s.summary          = 'PushBots flutter SDK'
+  s.description      = 'PushBots is a scalable push notification system for mobile applications that helps save time and effort to effectively communicate with your users. We provide native SDKs (Android, iOS, and Phonegap), REST API, API clients(PHP, Python, NodeJS and dotNET) and an online dashboard to manage and send your push notifications. We also provide analytics, push scheduling and Twitter integration.'
+  s.homepage         = 'https://pushbots.com'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'PushBots' => 'info@pushbots.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
+  s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.platform = :ios, '8.0'
-  s.vendored_frameworks = 'Pushbots.framework'
+  s.dependency 'Pushbots', '2.5.0'
+  s.platform = :ios, '9.0'
+  s.static_framework = true
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }

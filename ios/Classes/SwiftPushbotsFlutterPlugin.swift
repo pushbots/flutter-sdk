@@ -15,7 +15,9 @@ public class SwiftPushbotsFlutterPlugin: NSObject, FlutterPlugin {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     switch call.method {
            case "initialize":
-               Pushbots.initWithAppId(call.arguments as? String, withLaunchOptions: nil, prompt: true, receivedNotification:
+               let arguments: Dictionary<String, Any> = call.arguments as! Dictionary
+               let applicationId: String = arguments["id"] as! String
+               Pushbots.initWithAppId(applicationId, withLaunchOptions: nil, prompt: true, receivedNotification:
                    { (notificationRecievied) in
                    SwiftPushbotsFlutterPlugin.channel.invokeMethod("received", arguments: notificationRecievied)
                }) { (openedNotification) in

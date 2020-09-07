@@ -42,7 +42,7 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation 'com.pushbots:pushbots-lib:3.3.2@aar'
+    implementation 'com.pushbots:pushbots-lib:3.3.3@aar'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
 }

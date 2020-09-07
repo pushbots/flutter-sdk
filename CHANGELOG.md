@@ -1,3 +1,11 @@
+## 1.0.1
+
+* Update example app to match latest flutter update
+* Update Android sdk to 3.3.3
+* Update iOS sdk to 2.5.0 
+* Add Extension to example ios app for rich media in iOS
+* Bug fixes for iOS init in 1.0.0
+
 
 ## 1.0.0
 

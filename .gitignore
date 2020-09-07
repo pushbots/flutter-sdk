@@ -112,3 +112,14 @@ app.*.symbols
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
+
+.DS_Store
+.dart_tool/
+
+.packages
+.pub/
+pubspec.lock
+
+build/
+.idea/
+android/.idea

@@ -14,10 +14,8 @@ Add this to your package's `pubspec.yaml` file:
 
 ````
 dependencies:
-  pushbots_flutter: ^1.0.0
+  pushbots_flutter: ^1.0.1
 ````
-
-
 
 **2- Install it**
 
@@ -53,9 +51,9 @@ Add to `defaultConfig` section, then replace `PUSHBOTS_APP_ID` and `GOOGLE_SENDE
 defaultConfig {
         // Add PushBots integration data
         manifestPlaceholders = [
-                pushbots_app_id               : "YOUR_APP_ID",
+                pushbots_app_id               : "PUSHBOTS_APPLICATION_ID",
                 pushbots_loglevel             : "DEBUG",
-                google_sender_id              : "YOUR_SENDER_ID"
+                google_sender_id              : "SENDER_ID"
         ]
 
     }
@@ -68,16 +66,12 @@ defaultConfig {
 ### Flutter Usage
 
 
-
-
-
-
 Once added `pushbots_flutter` into your `pubspec.yaml`.
 
 #### Initializing PushBots:-
 
 
-You can start by initializing the `PushBotsFlutter` by calling **`PushbotsFlutter.initialize("PUSHBOTS_APPLICATION_ID", "YOUR_WEBAPI_KEY", "YOUR_FCM_APP_ID", "YOUR_PROJECT_ID");`**
+You can start by initializing the `PushBotsFlutter` by calling **`PushbotsFlutter.initialize("PUSHBOTS_APPLICATIN_ID", "YOUR_WEBAPI_KEY", "YOUR_FCM_APP_ID", "YOUR_PROJECT_ID");`**
 
 
 ![Initialize Image](assets/fcm-info.png)

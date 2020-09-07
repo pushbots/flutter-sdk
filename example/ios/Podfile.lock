@@ -1,11 +1,17 @@
 PODS:
   - Flutter (1.0.0)
-  - pushbots_flutter (0.0.1):
+  - Pushbots (2.5.0)
+  - pushbots_flutter (1.0.1):
     - Flutter
+    - Pushbots (= 2.5.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - pushbots_flutter (from `.symlinks/plugins/pushbots_flutter/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Pushbots
 
 EXTERNAL SOURCES:
   Flutter:
@@ -15,8 +21,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  pushbots_flutter: f04c444bea1d0fe72e410c6f1bb3bc02503a68d4
+  Pushbots: bc0866d21a01221571d95193394a981804ba2f1e
+  pushbots_flutter: 48bc35cd46b76845b41af89c806e4cf146e67792
 
-PODFILE CHECKSUM: 1b66dae606f75376c5f2135a8290850eeb09ae83
+PODFILE CHECKSUM: 7948c47c5998e46ca1c35447cec4f5a0978e8787
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.9.3

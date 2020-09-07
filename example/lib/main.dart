@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
  
     PushbotsFlutter.setTags(["tag1", "tag2"]);
     PushbotsFlutter.removeTags(["tag1"]);
-    PushbotsFlutter.shareLocation(true);
+
 
     PushbotsFlutter.listenForNotificationOpen().stream.listen((onData) {
       print("Main Dart opened: " + onData.toString());
@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
   Future<void> initPushBots() async {
     String initStatue;
     try {
-      initStatue = await PushbotsFlutter.initialize("5e145ec41f0f854fca1e2b54");
+      initStatue = await PushbotsFlutter.initialize("5f54eb8294c8707a73747353", "AIzaSyBBqJ3drZa5ela2vp_qG5jIaDLu_EmVFgo", "1:228922123289:android:adf65d015d73994d9c3688", "test-ea152");
     } on Exception {
       initStatue = 'Failed to get initialize push-bots.';
     }
