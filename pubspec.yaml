@@ -6,7 +6,7 @@ repository: https://github.com/pushbots/flutter-sdk
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
-  flutter: ">=0.1.4 <2.0.0"
+  flutter: ">=1.10.0 <2.0.0"
   
 dependencies:
   flutter:
@@ -19,5 +19,9 @@ dev_dependencies:
 
 flutter:
   plugin:
-    androidPackage: com.pushbots_flutter
-    pluginClass: PushbotsFlutterPlugin
+    platforms:
+      android:
+        package: com.pushbots_flutter
+        pluginClass: PushbotsFlutterPlugin
+      ios:
+        pluginClass: PushbotsFlutterPlugin
