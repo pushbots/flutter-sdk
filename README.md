@@ -23,7 +23,7 @@ Add this to your package's `pubspec.yaml` file below dependencies:
 
 ````yaml
 dependencies:
-  pushbots_flutter: ^1.0.1
+  pushbots_flutter: ^1.0.2
 ````
 
 **2- Install the SDK:**

@@ -1,3 +1,8 @@
+## 1.0.2
+
+* [hotfix] Fix personalization with notification title when sent with rich media in android
+
+
 ## 1.0.1
 
 * Update example app to match latest flutter update

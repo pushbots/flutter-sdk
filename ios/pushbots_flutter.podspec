@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'pushbots_flutter'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'PushBots flutter SDK'
   s.description      = 'PushBots is a scalable push notification system for mobile applications that helps save time and effort to effectively communicate with your users. We provide native SDKs (Android, iOS, and Phonegap), REST API, API clients(PHP, Python, NodeJS and dotNET) and an online dashboard to manage and send your push notifications. We also provide analytics, push scheduling and Twitter integration.'
   s.homepage         = 'https://pushbots.com'
